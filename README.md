@@ -34,11 +34,11 @@ The main objectives of this project are:
 
 2.  Features are extracted from the maze.
 
-3.The trained machine learning model predicts the best algorithm.
+3. The trained machine learning model predicts the best algorithm.
 
-4.The selected algorithm (BFS, DFS, or A*) is executed.
+4. The selected algorithm (BFS, DFS, or A*) is executed.
    
-5.The system displays:
+5. The system displays:
 -The maze
 -Performance metrics (time, nodes explored)
 -Predicted algorithm
