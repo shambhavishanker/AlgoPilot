@@ -15,18 +15,29 @@ The system also explains why a particular algorithm is chosen and visualizes the
 
 **OBJECTIVES**
 The main objectives of this project are:
+
 • To compare how BFS, DFS, and A* perform on different mazes
+
 • To understand how the structure of a maze affects algorithm performance
+
 • To use machine learning to predict the best algorithm for a given maze
+
 • To explain why a particular algorithm is chosen
+
 • To show the path taken by the selected algorithm
+
 • To help students understand these algorithms better.
 
 **How the Project Runs**
+
 1. The system generates a random maze or accepts user-defined input.
-2. Features are extracted from the maze.
-3. The trained machine learning model predicts the best algorithm.
-4. The selected algorithm (BFS, DFS, or A*) is executed.
+
+2.  Features are extracted from the maze.
+
+3.The trained machine learning model predicts the best algorithm.
+
+4.The selected algorithm (BFS, DFS, or A*) is executed.
+   
 5.The system displays:
 -The maze
 -Performance metrics (time, nodes explored)
