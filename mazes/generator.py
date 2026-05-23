@@ -10,11 +10,11 @@ def generate_maze(rows=10, cols=10, obstacle_prob=0.2):
     1 = wall
     """
 
-    while True:  # 🔥 keep trying until we get a solvable maze
+    while True:
 
         maze = []
 
-        # 🔹 generate random grid
+        # generate random grid
         for i in range(rows):
             row = []
             for j in range(cols):
@@ -24,15 +24,15 @@ def generate_maze(rows=10, cols=10, obstacle_prob=0.2):
                     row.append(0)  # path
             maze.append(row)
 
-        # 🔹 define start & end
+        # define start & end
         start = (0, 0)
         end = (rows - 1, cols - 1)
 
-        # 🔹 ensure start and end are NOT blocked
+        # ensure start and end aren't blocked
         maze[start[0]][start[1]] = 0
         maze[end[0]][end[1]] = 0
 
-        # 🔹 check if path exists using BFS
+        # check if path exists using BFS
         path, _, _ = bfs(maze, start, end)
 
         if path is not None:
