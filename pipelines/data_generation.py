@@ -20,12 +20,12 @@ def generate_dataset(n=300):
     while min(counts.values()) < target_per_algo and attempts < max_attempts:
         attempts += 1
 
-        # 🔀 pick which algorithm we want to generate for
+        # pick which algorithm we want to generate for
         target_algo = random.choice(["bfs", "dfs", "astar"])
 
-        # =====================================================
-        # 🔵 BFS CASE → short distance + open maze
-        # =====================================================
+     
+        # BFS CASE → short distance + open maze
+        
         if target_algo == "bfs":
             maze, start, end = generate_maze(obstacle_prob=0.05)
 
@@ -33,15 +33,15 @@ def generate_dataset(n=300):
             end = (random.randint(0, 3), random.randint(0, 3))
             maze[end[0]][end[1]] = 0
 
-        # =====================================================
-        # 🟠 DFS CASE → dense + messy maze
-        # =====================================================
+ 
+        #  DFS CASE → dense + messy maze
+       
         elif target_algo == "dfs":
             maze, start, end = generate_maze(obstacle_prob=0.45)
 
-        # =====================================================
-        # 🟣 A* CASE → long distance + medium density
-        # =====================================================
+      
+        #  A* CASE → long distance + medium density
+      
         else:  # astar
             maze, start, end = generate_maze(obstacle_prob=0.25)
 
@@ -49,9 +49,9 @@ def generate_dataset(n=300):
             end = (len(maze) - 1, len(maze[0]) - 1)
             maze[end[0]][end[1]] = 0
 
-        # =====================================================
-        # ✅ ensure maze is solvable
-        # =====================================================
+   
+        # ensure maze is solvable
+      
         b_path, b_steps, _ = bfs(maze, start, end)
         if b_path is None:
             continue
@@ -59,9 +59,8 @@ def generate_dataset(n=300):
         d_path, d_steps, _ = dfs(maze, start, end)
         a_path, a_steps, _ = astar(maze, start, end)
 
-        # =====================================================
-        # 🎯 assign label DIRECTLY (no scoring anymore)
-        # =====================================================
+        #  assign label DIRECTLY (no scoring anymore)
+       
         best = target_algo
 
         # enforce balance
@@ -77,17 +76,17 @@ def generate_dataset(n=300):
 
         print(f"Added: {best} | counts: {counts}")
 
-    # =====================================================
-    # 📊 FINAL STATUS
-    # =====================================================
+    
+    # FINAL STATUS
+
     print("\nFinal class distribution:", counts)
 
     if min(counts.values()) < target_per_algo:
-        print("⚠️ WARNING: Could not fully balance dataset")
+        print(" WARNING: Could not fully balance dataset")
 
-    # =====================================================
-    # 💾 SAVE DATASET
-    # =====================================================
+ 
+    # SAVE DATASET
+ 
     with open("data/dataset.csv", "w", newline="") as f:
         writer = csv.writer(f)
 
@@ -106,6 +105,6 @@ def generate_dataset(n=300):
     print(f"\nDataset generated: {len(all_data)} samples")
 
 
-# ▶️ run directly
+# run directly
 if __name__ == "__main__":
     generate_dataset(300)
