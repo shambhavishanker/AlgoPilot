@@ -21,7 +21,7 @@ def predict_best(model, maze, start, end):
 
    
 
-    # 🔹 Model already returns strings → keep it simple
+    #  Model already returns strings → keep it simple
     if pred in ["bfs", "dfs", "astar"]:
         algo = pred
     else:
